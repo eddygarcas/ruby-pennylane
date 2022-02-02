@@ -24,13 +24,13 @@ module Ruby
 
       attr_accessor :token
 
-      def initialize(**args)
+      def initialize(args)
         @token ||= args.fetch(:token, Rails.configuration.pennylane_token)
       end
 
       # call(method: :get, element: customers, id: 3, filter: [{"field": "customer_id", "operator": "eq", "value": "4c02116c-1793-4e3d-becf-6870ef12d441"}], body: { elem: { } })
       # method: :get by default
-      def call(**args)
+      def call(args)
         return {error: :missing_argument, status: :unprocessable_entity}.as_json unless args[:element]
 
         http_method(args)
@@ -38,7 +38,7 @@ module Ruby
 
       private
 
-      def http_method(**args)
+      def http_method(args)
         self.class.headers(Authorization: "Bearer #{@token || args[:token]}")
         # See https://ruby-doc.org/core-3.0.2/String.html#method-i-25
         url = Pennylane.url[:v1] % {
