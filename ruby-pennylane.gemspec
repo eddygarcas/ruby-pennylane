@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = "Pennylane is a finance platform"
   spec.homepage      = "https://github.com/eddygarcas/ruby-pennylane"
   spec.license       = "MIT"
-  spec.required_ruby_version =  Gem::Requirement.new(">= 3.1.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 3.3.4")
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org/"
 
@@ -31,11 +31,11 @@ Gem::Specification.new do |spec|
 
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
+  spec.add_dependency "activesupport", ">= 7.1"
   spec.add_dependency "httparty", "~> 0.18"
   spec.add_dependency "rake", "~> 13.0"
   spec.add_dependency "rspec", "~> 3.0"
   spec.add_dependency "rubocop", "~> 1.7"
-  spec.add_dependency "activesupport", "~> 7.0"
 
   # For more information and examples about making a new gem, checkout our
   # guide at: https://bundler.io/guides/creating_gem.html
