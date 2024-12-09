@@ -12,8 +12,14 @@ module Ruby
     # See https://ruby-doc.org/core-3.0.2/Kernel.html#method-i-sprintf
     mattr_reader :url, default:
       {
-        v1: "https://app.pennylane.tech/api/external/v1/%<element>s/%<id>s?filter=%<filter>s&page=%<page>d&locale=%<locale>s"
+        v1: "https://app.pennylane.com/api/external/v1/%<element>s/%<id>s?filter=%<filter>s&page=%<page>d&locale=%<locale>s"
       }
+
+    # Setup data from initializer
+    def self.setup
+      yield(self)
+    end
+
     class Error < StandardError; end
 
     class Client
@@ -25,13 +31,13 @@ module Ruby
       attr_accessor :token
 
       def initialize(args = {})
-        @token ||= args.fetch(:token, Rails.configuration.pennylane_token)
+        @token ||= args.fetch(:token, defined?(Rails) && Rails.configuration.pennylane_token || ENV["PENNYLANE_TOKEN"])
       end
 
       # call(method: :get, element: customers, id: 3, filter: [{"field": "customer_id", "operator": "eq", "value": "4c02116c-1793-4e3d-becf-6870ef12d441"}], body: { elem: { } })
       # method: :get by default
       def call(args)
-        return {error: :missing_argument, status: :unprocessable_entity}.as_json unless args[:element]
+        return { error: :missing_argument, status: :unprocessable_entity }.as_json unless args[:element]
 
         http_method(args)
       end
@@ -50,7 +56,7 @@ module Ruby
         }
         self.class.method(args.fetch(:method, :get)).call(url, body: JSON.generate(args.fetch(:body, {})))
       rescue => e
-        {error: e&.message, status: :not_found}.as_json
+        { error: e&.message, status: :not_found }.as_json
       end
     end
   end
