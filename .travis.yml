@@ -1,5 +1,5 @@
 ---
-language: ruby
+language: rz
 cache: bundler
 rvm:
   - 3.1.0

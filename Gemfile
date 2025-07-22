@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in ruby-pennylane.gemspec
+# Specify your gem's dependencies in rz-pennylane.gemspec
 gemspec
 
 gem "rake", "~> 13.0"

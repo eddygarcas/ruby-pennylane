@@ -2,17 +2,17 @@
 
 require_relative "pennylane/version"
 require "httparty"
-require 'active_support/isolated_execution_state'
+require "active_support/isolated_execution_state"
 require "active_support/core_ext/module"
 require "active_support/core_ext/object"
 
-module Ruby
+module Rz
   module Pennylane
 
     # See https://ruby-doc.org/core-3.0.2/Kernel.html#method-i-sprintf
     mattr_reader :url, default:
       {
-        v1: "https://app.pennylane.com/api/external/v1/%<element>s/%<id>s?filter=%<filter>s&page=%<page>d&locale=%<locale>s"
+        v1: "https://app.pennylane.com/api/external/v2/%<element>s/%<id>s?filter=%<filter>s&page=%<page>d&locale=%<locale>s"
       }
 
     # Setup data from initializer
@@ -55,7 +55,7 @@ module Ruby
           page: args[:page] || 0
         }
         self.class.method(args.fetch(:method, :get)).call(url, body: JSON.generate(args.fetch(:body, {})))
-      rescue => e
+      rescue StandardError => e
         { error: e&.message, status: :not_found }.as_json
       end
     end
