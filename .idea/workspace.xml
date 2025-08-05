@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8f3aa62-1507-4a8b-982b-cc3e15962c40" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ruby-pennylane.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ruby-pennylane.iml" afterDir="false" />
+    <list default="true" id="b8f3aa62-1507-4a8b-982b-cc3e15962c40" name="Changes" comment="Upgrade Rails and Ruby version&#10;Call Pennylane V2&#10;Rename modules to comply with Ruby 3.5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ruby-version" beforeDir="false" afterPath="$PROJECT_DIR$/.ruby-version" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/console" beforeDir="false" afterPath="$PROJECT_DIR$/bin/console" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ruby/pennylane.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/rz/pennylane.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ruby/pennylane/version.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/rz/pennylane/version.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruby-pennylane.gemspec" beforeDir="false" afterPath="$PROJECT_DIR$/rz-pennylane.gemspec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/ruby/pennylane_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/ruby/pennylane_spec.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/spec_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/spec_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/rz/pennylane.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/rz/pennylane.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/rz/pennylane/version.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/rz/pennylane/version.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +46,7 @@
     "RSpec.pennylane_spec.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "com.intellij.lang.ruby.rbs.tools.collection.workspace.sync.RbsCollectionUpdateProjectActivity#LAST_UPDATE_TIMESTAMP": "1753175602994",
+    "com.intellij.lang.ruby.rbs.tools.collection.workspace.sync.RbsCollectionUpdateProjectActivity#LAST_UPDATE_TIMESTAMP": "1754391656249",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "/home/duard/RubymineProjects/ruby-pennylane",
     "node.js.detected.package.eslint": "true",
@@ -82,7 +72,11 @@
         <env name="JRUBY_OPTS" value="-X+O" />
       </envs>
       <EXTENSION ID="BundlerRunConfigurationExtension" BUNDLE_MODE="AUTO" bundleExecEnabled="true" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" runner="rcov" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/ruby/pennylane_spec.rb" />
@@ -115,7 +109,11 @@
       </envs>
       <EXTENSION ID="BundlerRunConfigurationExtension" BUNDLE_MODE="AUTO" bundleExecEnabled="true" />
       <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" runner="rcov" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/spec/ruby/pennylane_spec.rb" />
@@ -160,12 +158,37 @@
       <updated>1639742622881</updated>
       <workItem from="1639742624060" duration="1075000" />
       <workItem from="1733741309656" duration="853000" />
-      <workItem from="1753175544031" duration="1794000" />
+      <workItem from="1753175544031" duration="1979000" />
+      <workItem from="1754391597296" duration="229000" />
     </task>
+    <task id="LOCAL-00001" summary="Upgrade Rails and Ruby version&#10;Call Pennylane V2&#10;Rename modules to comply with Ruby 3.5">
+      <option name="closed" value="true" />
+      <created>1753177415028</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1753177415028</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Upgrade Rails and Ruby version&#10;Call Pennylane V2&#10;Rename modules to comply with Ruby 3.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upgrade Rails and Ruby version&#10;Call Pennylane V2&#10;Rename modules to comply with Ruby 3.5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

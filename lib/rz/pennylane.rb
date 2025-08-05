@@ -12,7 +12,7 @@ module Rz
     # See https://ruby-doc.org/core-3.0.2/Kernel.html#method-i-sprintf
     mattr_reader :url, default:
       {
-        v1: "https://app.pennylane.com/api/external/v2/%<element>s/%<id>s?filter=%<filter>s&page=%<page>d&locale=%<locale>s"
+        v2: "https://app.pennylane.com/api/external/v2/%<element>s/%<id>s?filter=%<filter>s&limit=%<limit>d&cursor=%<cursor>s"
       }
 
     # Setup data from initializer
@@ -47,12 +47,12 @@ module Rz
       def http_method(args = {})
         self.class.headers(Authorization: "Bearer #{@token || args[:token]}")
         # See https://ruby-doc.org/core-3.0.2/String.html#method-i-25
-        url = Pennylane.url[:v1] % {
+        url = Pennylane.url[:v2] % {
           element: args[:element],
           id: args.fetch(:id, nil),
           filter: args.fetch(:filter, nil)&.to_json,
-          locale: args.fetch(:locale, nil),
-          page: args[:page] || 0
+          cursor: args.fetch(:cursor, nil),
+          limit: args[:limit] || 20
         }
         self.class.method(args.fetch(:method, :get)).call(url, body: JSON.generate(args.fetch(:body, {})))
       rescue StandardError => e
